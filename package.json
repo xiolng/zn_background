@@ -1,0 +1,36 @@
+{
+  "name": "back_pc",
+  "version": "1.0.0",
+  "description": "nodejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xiolng/back_pc.git"
+  },
+  "keywords": [
+    "nodejs",
+    "koa",
+    "mongodb"
+  ],
+  "author": "zzn",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xiolng/back_pc/issues"
+  },
+  "homepage": "https://github.com/xiolng/back_pc#readme",
+  "dependencies": {
+    "koa": "^2.5.2",
+    "koa-art-template": "^1.1.1",
+    "koa-bodyparser": "^4.2.1",
+    "koa-router": "^7.4.0",
+    "koa-static": "^5.0.0",
+    "mongodb": "^3.1.1"
+  },
+  "devDependencies": {
+    "art-template": "^4.12.2",
+    "nodemon": "^1.18.3"
+  }
+}

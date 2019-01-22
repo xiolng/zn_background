@@ -27,7 +27,7 @@ class Index {
                         user: ''+Config.loginData.user,
                         password: ''+Config.loginData.pwd
                     },
-                    authSource: 'xiolng',
+                    authSource: 'admin',
                     useNewUrlParser: true
                 }, (err, client) => {
                     if (err) {

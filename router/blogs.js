@@ -25,7 +25,20 @@ router.post('/blogsList', async (ctx, next) => {
         ctx.body = {
             data: data,
             success: 'success',
-            code: 1,
+            code: 200,
+            message: '获取成功'
+        }
+    })
+
+})
+//getListDetail
+router.post('/blogsDetail', async (ctx, next) => {
+    let ids = ctx.request.body.data.id
+    await blogDB.find('blog', {id: ids}).then((docs) => {
+        ctx.body = {
+            data: docs[0],
+            success: 'success',
+            code: 200,
             message: '获取成功'
         }
     })

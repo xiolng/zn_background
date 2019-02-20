@@ -12,13 +12,10 @@ const static = require('koa-static');
 const render = require('koa-art-template');
 const path = require('path');
 
-// let Db = require('./mongoConfig/index.js')
 
 
 const index = require('./router/index.js')
-const header = require('./router/header.js')
-const home = require('./router/home.js')
-const resume = require('./router/resume.js')
+const blogs = require('./router/blogs.js')
 
 
 render(app,{
@@ -42,9 +39,7 @@ app.use(async (ctx, next) => {
 router.use(index)
 
 
-router.use('/header',header)
-router.use('/home',home)
-router.use('/resume',resume)
+router.use('/blogs',blogs)
 
 
 app

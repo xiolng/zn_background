@@ -19,18 +19,18 @@ const blogs = require('./router/blogs.js')
 
 
 render(app,{
-    root:path.join(__dirname,'../index'),
+    root:path.join(__dirname,'./index'),
     extname:'.html',
     debug:process.env.NODE_ENV !== 'production'
 });
 
 //index
 app.use(static(
-	path.join(__dirname,'../index')
+	path.join(__dirname,'./index')
 ))
 //blog
 app.use(static(
-	path.join(__dirname,'../blogs')
+	path.join(__dirname,'./blogs')
 ))
 
 app.use(async (ctx, next) => {

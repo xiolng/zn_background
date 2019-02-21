@@ -56,8 +56,8 @@ if(process.env.NODE_ENV !== 'production'){
         console.log('starting at port 5599');
     })
 } else {
-    app.listen(80, () => {
-        console.log('starting at port 80');
+    app.listen(5182, () => {
+        console.log('starting at port 5182');
     })
 }
 

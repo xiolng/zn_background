@@ -19,7 +19,7 @@ const blogs = require('./router/blogs.js')
 
 
 render(app,{
-    root:path.join(__dirname,'./index'),
+    root:path.join(__dirname,'./'),
     extname:'.html',
     debug:process.env.NODE_ENV !== 'production'
 });

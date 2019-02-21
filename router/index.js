@@ -6,8 +6,8 @@ router.get('/', async (ctx) =>{
 })
 
 //blog
-router.get('/blogs', async (ctx) =>{
-    await ctx.render('./blogs/index')
+router.get('/blog', async (ctx) =>{
+    await ctx.render('./blog/index')
 })
 
 module.exports = router.routes()

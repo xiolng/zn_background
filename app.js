@@ -30,7 +30,7 @@ app.use(static(
 ))
 //blog
 app.use(static(
-	path.join(__dirname,'./blogs')
+	path.join(__dirname,'./blog')
 ))
 
 app.use(async (ctx, next) => {

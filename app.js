@@ -26,11 +26,11 @@ render(app,{
 
 //index
 app.use(static(
-	path.join(__dirname,'./index')
+	path.join(__dirname,'index')
 ))
 //blog
 app.use(static(
-	path.join(__dirname,'./blog')
+	path.join(__dirname,'blog')
 ))
 
 app.use(async (ctx, next) => {
@@ -43,7 +43,7 @@ app.use(async (ctx, next) => {
 router.use(index)
 
 
-router.use('/blogs',blogs)
+router.use(blogs)
 
 
 app

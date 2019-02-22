@@ -46,7 +46,9 @@ class Index {
     find(collectionName, json) {
         return new Promise((resolve, reject) => {
             this.connect().then((db) => {
-                let result = db.collection(collectionName).find(json);
+                let result = db.collection(collectionName).find(json).sort({
+                    id: -1
+                });
                 result.toArray((err, data) => {
                     if (err){
                         reject(err)

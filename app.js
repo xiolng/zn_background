@@ -38,7 +38,7 @@ app.use(async (ctx, next) => {
 router.use(index)
 
 
-router.use(blogs)
+router.use('/blogs', blogs)
 
 
 app

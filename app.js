@@ -26,13 +26,8 @@ render(app,{
 
 //index
 app.use(static(
-	path.join(__dirname,'index')
+	path.join(__dirname,'dist')
 ))
-//blog
-app.use(static(
-	path.join(__dirname,'blog')
-))
-
 app.use(async (ctx, next) => {
     // console.log('userCtx', ctx);
     await next();

@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/xiolng/back_pc#readme",
   "dependencies": {
+    "jsonwebtoken": "^8.5.0",
     "koa": "^2.5.2",
     "koa-art-template": "^1.1.1",
     "koa-bodyparser": "^4.2.1",
@@ -32,6 +33,8 @@
   },
   "devDependencies": {
     "art-template": "^4.12.2",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
     "nodemon": "^1.18.3"
   }
 }

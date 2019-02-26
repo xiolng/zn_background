@@ -17,6 +17,7 @@ router.post('/', async (ctx, next) => {
 router.post('/blogsList', async (ctx, next) => {
     await blogDB.find('blog', {}).then((docs) => {
         let data = docs.map(v => {
+            // 截取一部分内容展示
             let arrCon = v.content.split('')
             arrCon.length = 10
             v.content = arrCon.join(',').replace(/,/g, '')

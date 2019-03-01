@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken')
 const jwtKoa = require('koa-jwt')
 const util = require('util')
 const verify = util.promisify(jwt.verify) // 解密
-const secret = 'jwt demo'
+const secret = 'znzheng'
 
 class Tokens {
     constructor() {
@@ -14,6 +14,7 @@ class Tokens {
     }
 
     async getToken(token) {
+        console.log(1111, token)
         return await verify(token.split(' ')[1], secret)
     }
 

@@ -11,22 +11,31 @@ const querystring = require('querystring');
 const static = require('koa-static');
 const render = require('koa-art-template');
 const path = require('path');
-
+const tokens = require('./mongoConfig/token')
+const noTokenPath = require('./mongoConfig/noTokenPath')
 
 
 const index = require('./router/index.js')
 const blogs = require('./router/blogs.js')
+const login = require('./router/login.js')
+const user = require('./router/user.js')
 
+app
+    .use(bodyParser())
 
-render(app,{
-    root:path.join(__dirname,'./'),
-    extname:'.html',
-    debug:process.env.NODE_ENV !== 'production'
+app.use(tokens.noToken({
+    path: noTokenPath
+}))
+
+render(app, {
+    root: path.join(__dirname, './'),
+    extname: '.html',
+    debug: process.env.NODE_ENV !== 'production'
 });
 
 //index
 app.use(static(
-	path.join(__dirname,'dist')
+    path.join(__dirname, 'dist')
 ))
 app.use(async (ctx, next) => {
     // console.log('userCtx', ctx);
@@ -34,19 +43,19 @@ app.use(async (ctx, next) => {
 })
 
 
-
 router.use(index)
 
 
 router.use('/blogs', blogs)
+router.use('/login', login)
+router.use('/user', user)
 
 
 app
-  .use(bodyParser())
-  .use(router.routes())
-  .use(router.allowedMethods())
+    .use(router.routes())
+    .use(router.allowedMethods())
 
-if(process.env.NODE_ENV !== 'production'){
+if (process.env.NODE_ENV !== 'production') {
     app.listen(5599, () => {
         console.log('starting at port 5599');
     })

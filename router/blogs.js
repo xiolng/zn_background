@@ -2,6 +2,7 @@ const router = require('koa-router')()
 const https = require('https')
 const querystring = require('querystring')
 const {URL} = require('url')
+const {getToken} = require('../mongoConfig/token')
 
 
 const blogDB = require('../mongoConfig')
@@ -17,6 +18,7 @@ router.post('/', async (ctx, next) => {
 router.post('/blogsList', async (ctx, next) => {
     await blogDB.find('blog', {}).then((docs) => {
         let data = docs.map(v => {
+            // 截取一部分内容展示
             let arrCon = v.content.split('')
             arrCon.length = 10
             v.content = arrCon.join(',').replace(/,/g, '')
@@ -33,6 +35,10 @@ router.post('/blogsList', async (ctx, next) => {
 })
 //getListDetail
 router.post('/blogsDetail', async (ctx, next) => {
+    let token = ctx.request.headers.authorization
+    getToken(token).then(res => {
+        console.log(3333, res)
+    })
     let ids = ctx.request.body.data.id
     await blogDB.find('blog', {id: ids}).then((docs) => {
         ctx.body = {
@@ -46,9 +52,14 @@ router.post('/blogsDetail', async (ctx, next) => {
 })
 //newBlogs
 router.post('/createBlogs', async (ctx, next) => {
+
+    let token = ctx.request.headers.authorization
+    getToken(token).then(res => {
+        console.log(3333, res)
+    })
     let ids = await blogDB.findLast('blog',{}).then(res => {
         console.log(333, res)
-        return res[0] && res[0].id || 0
+        return res[0] && res[0].id || 1
     })
     await blogDB.insert('blog', {
         id: ids > 1 ? ids + 1 : ids,

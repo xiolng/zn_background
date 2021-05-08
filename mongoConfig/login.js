@@ -1,5 +1,5 @@
 const loginData = {
-    user:'xiolng',
-    pwd:'Zhengxio955'
+    user:'141319',
+    pwd:'141319'
 }
 module.exports = loginData
